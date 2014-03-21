@@ -73,7 +73,7 @@
     isLeaf='false'
     isQuery='false'
     isStatic='true'
-    name='c_getGalaxie'
+    name='s_getGalaxie'
     concurrency='sequential'
     visibility='public'>
    <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:4a5be735-b036-455e-ade9-636e45a22b60'
@@ -90,16 +90,14 @@
      isOrdered='false'
      isStream='false'
      isUnique='true'
-     direction='return'>
-    <type href='urn:uuid:6019c9a7-034c-444c-b3a5-874b4674d420'/>
-   </ownedParameter>
+     direction='return'/>
   </ownedOperation>
   <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:4d0c95d0-80ef-4367-b75f-26da76a5a3a3'
     isAbstract='false'
     isLeaf='false'
     isQuery='false'
     isStatic='true'
-    name='c_getTtesGalaxies'
+    name='s_getTtesGalaxies'
     concurrency='sequential'
     visibility='public'>
    <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:96c762c9-bb89-46de-b373-deee44b88688'
@@ -108,7 +106,6 @@
      isStream='false'
      isUnique='true'
      direction='return'>
-    <type href='urn:uuid:6019c9a7-034c-444c-b3a5-874b4674d420'/>
     <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:9b234f95-4af9-44e4-9aa1-516a000587e6'
       value='0'
       visibility='public'/>

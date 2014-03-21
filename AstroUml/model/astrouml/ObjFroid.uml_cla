@@ -8,7 +8,7 @@
    isLeaf='false'
    name='ObjFroid'
    visibility='public'>
-  <generalization xmi:type='uml:Generalization' xmi:uuid='urn:uuid:63c27ab1-f4db-4186-ba4a-960dce97fb47'
+  <generalization xmi:type='uml:Generalization' xmi:uuid='urn:uuid:92729b6c-7340-44a1-a623-897643789245'
     isSubstitutable='true'>
    <general href='urn:uuid:0bf79da7-99db-416c-9260-f6ea11c2e456'/>
   </generalization>
@@ -92,5 +92,22 @@
      value='1'
      visibility='public'/>
   </ownedAttribute>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:e37cc266-0fd2-46e6-8aad-aa601ae2a320'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='s_theBigOne'
+    concurrency='sequential'
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:ed77b2c9-22b8-459b-bb07-80cab99da1b9'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     direction='return'>
+    <type href='urn:uuid:83a81dbe-3170-40f6-970b-fb2812854034'/>
+   </ownedParameter>
+  </ownedOperation>
  </uml:Class>
 </xmi:XMI>
