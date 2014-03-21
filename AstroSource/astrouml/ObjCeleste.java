@@ -13,24 +13,9 @@ public abstract class ObjCeleste {
      */
     private String nom;
 
-    /**
-     * @attribute
-     */
-    private static Integer s_nextCode;
-
-    public Galaxie getGalaxie() {
-    }
 
     public abstract String getType();
 
-    public static Collection s_getObjets(Galaxie g) {
-    }
-
-    public static ObjCeleste s_getObjet(Integer num) {
-    }
-
-    public ObjCeleste getCentre() {
-    }
 
     public Integer nbDeSatellites() {
     }
@@ -38,14 +23,10 @@ public abstract class ObjCeleste {
     public Collection getSatellites() {
     }
 
+
     public Galaxie getGalaxie() {
     }
 
-    public static Collection s_getObjets(Galaxie g) {
-    }
-
-    public static ObjCeleste s_getObjet(Integer num) {
-    }
 
     public ObjCeleste getCentre() {
     }

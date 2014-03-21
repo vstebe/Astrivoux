@@ -16,10 +16,11 @@ public class Etoile extends ObjCeleste {
     /**
      */
     Galaxie galaxie;
-
-    public static Collection s_listeEtoiles() {
+    
+    
+    public String getType() {
+        return "";
     }
 
-    public Integer s_nbDetoile() {
-    }
+
 }

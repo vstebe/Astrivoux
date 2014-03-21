@@ -27,9 +27,9 @@ public class ObjFroid extends ObjCeleste {
      */
     ObjCeleste centre;
 
-    public ObjFroid s_theBigOne() {
-    }
 
-    public ObjFroid s_theBigOne() {
+    public String getType() {
+        return "";
     }
+   
 }

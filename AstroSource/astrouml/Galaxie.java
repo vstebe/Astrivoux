@@ -1,8 +1,15 @@
 package astrouml;
 
+import java.util.*;
+
 import java.util.Collection;
 
 public class Galaxie {
+    /**
+     * @associates <{astrouml.Etoile}>
+     */
+    Collection etoiles;
+
     /**
      * @attribute
      */
@@ -18,12 +25,14 @@ public class Galaxie {
      */
     private Integer eloignement;
 
-    public static Collection s_getTtesGalaxies() {
+
+    public ArrayList<Etoile> listeEtoiles() {
+        return null;
     }
 
-    public static Object s_getGalaxie(String nom) {
+    public static int nbEtoiles() {
+        return 0;
     }
-
-    public static Object s_getGalaxie(String nom) {
-    }
+    
+        
 }
