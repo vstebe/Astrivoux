@@ -30,7 +30,7 @@ public class Etoile extends ObjCeleste {
     
     
     public String getType() {
-        return "";
+        return "Etoile";
     }
 
 

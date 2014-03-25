@@ -43,7 +43,7 @@ public class ObjFroid extends ObjCeleste {
 
 
     public String getType() {
-        return "";
+        return this.type;
     }
    
 }

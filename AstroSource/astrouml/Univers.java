@@ -11,6 +11,8 @@ public class Univers {
     private Etoile soleil;
     
     private Galaxie galaxy;
+    
+    private ArrayList<ObjCeleste> obj = new ArrayList<ObjCeleste>();
 
     public ArrayList<Galaxie> getAllGalaxies() {
         return null;
@@ -29,6 +31,14 @@ public class Univers {
     }
     
     public Etoile creerEtoile(String nom, int magnitude, char age, Galaxie galaxie) {
+        return null;
+    }
+    
+    public ObjCeleste getObjet(String nom) {
+        for(ObjCeleste o : obj) {
+            if(o.getNom().equals(nom))
+                return o;
+        }
         return null;
     }
 }

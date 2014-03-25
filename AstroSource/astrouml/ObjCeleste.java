@@ -1,5 +1,6 @@
 package astrouml;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class ObjCeleste {
@@ -17,6 +18,8 @@ public abstract class ObjCeleste {
         this.code = code;
         this.nom = nom;
     }
+    
+    private ArrayList<ObjCeleste> satellites = new ArrayList<ObjCeleste>();
 
 
     public abstract String getType();
@@ -30,11 +33,19 @@ public abstract class ObjCeleste {
         return null;
     }
 
+    public String getNom() {
+        return this.nom;
+    }
 
     public abstract Galaxie getGalaxie();
 
 
     public ObjCeleste getCentre() {
         return null;
+    }
+    
+    @Override
+    public String toString() {
+        return this.nom + " : " + getType() + " ; galaxie : " + getGalaxie().getNom();
     }
 }

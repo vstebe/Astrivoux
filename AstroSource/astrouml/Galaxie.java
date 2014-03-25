@@ -39,5 +39,10 @@ public class Galaxie {
         return 0;
     }
     
+    public String getNom() {
+        return this.nom;
+    }
+    
+    
         
 }
