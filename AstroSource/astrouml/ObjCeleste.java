@@ -26,11 +26,15 @@ public abstract class ObjCeleste {
 
 
     public Integer nbDeSatellites() {
-        return 0;
+        return satellites.size();
     }
 
     public Collection getSatellites() {
-        return null;
+        return satellites;
+    }
+    
+    public void addSatellite(ObjFroid obj) {
+        satellites.add(obj);
     }
 
     public String getNom() {
@@ -44,10 +48,6 @@ public abstract class ObjCeleste {
     public abstract Galaxie getGalaxie();
 
 
-    public ObjCeleste getCentre() {
-        return null;
-    }
-    
     @Override
     public String toString() {
         return this.nom + " : " + getType() + " ; galaxie : " + getGalaxie().getNom();

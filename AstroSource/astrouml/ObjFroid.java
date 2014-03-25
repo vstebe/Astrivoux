@@ -46,6 +46,10 @@ public class ObjFroid extends ObjCeleste {
         return this.type;
     }
     
+    public ObjCeleste getCentre() {
+        return centre;
+    }
+    
     @Override
     public String toString() {
         String str = super.toString();
