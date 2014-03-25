@@ -29,7 +29,7 @@ public abstract class ObjCeleste {
         return satellites.size();
     }
 
-    public Collection getSatellites() {
+    public ArrayList<ObjCeleste> getSatellites() {
         return satellites;
     }
     
