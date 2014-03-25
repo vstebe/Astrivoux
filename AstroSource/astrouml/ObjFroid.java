@@ -45,5 +45,12 @@ public class ObjFroid extends ObjCeleste {
     public String getType() {
         return this.type;
     }
+    
+    @Override
+    public String toString() {
+        String str = super.toString();
+        str += "; gravite autour de " + getCentre().getNom() + " à " + this.diametre+" mkm; " + getSatellites().size() + " satellites";
+        return str;
+    }
    
 }

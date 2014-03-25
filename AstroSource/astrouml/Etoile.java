@@ -32,6 +32,11 @@ public class Etoile extends ObjCeleste {
     public String getType() {
         return "Etoile";
     }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "; age : " + this.ageLettre + " ; " + this.getSatellites().size() + " satellites";
+    }
 
 
 }

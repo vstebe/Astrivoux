@@ -36,6 +36,10 @@ public abstract class ObjCeleste {
     public String getNom() {
         return this.nom;
     }
+    
+    public int getCode() {
+        return code;
+    }
 
     public abstract Galaxie getGalaxie();
 

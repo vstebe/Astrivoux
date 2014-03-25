@@ -34,9 +34,9 @@ public class Univers {
         return null;
     }
     
-    public ObjCeleste getObjet(String nom) {
+    public ObjCeleste getObjet(int code) {
         for(ObjCeleste o : obj) {
-            if(o.getNom().equals(nom))
+            if(o.getCode() == code)
                 return o;
         }
         return null;
