@@ -11,7 +11,6 @@ public class Univers {
     private Etoile soleil;
     
     private Galaxie galaxy;
-    private Etoile soleil;
 
     public ArrayList<Galaxie> getAllGalaxies() {
         return null;
