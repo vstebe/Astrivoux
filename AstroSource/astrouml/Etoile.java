@@ -1,5 +1,6 @@
 package astrouml;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Etoile extends ObjCeleste {
@@ -17,6 +18,14 @@ public class Etoile extends ObjCeleste {
      */
     Galaxie galaxie;
     
+    /**
+     *Constructeur
+     * @param code
+     * @param nom
+     * @param magnitude
+     * @param ageLettre
+     * @param galaxie
+     */
     public Etoile(int code, String nom, int magnitude, String ageLettre, Galaxie galaxie) {
         super(code, nom);
         this.magnitude = magnitude;
@@ -24,11 +33,17 @@ public class Etoile extends ObjCeleste {
         this.galaxie = galaxie;
     }
     
+    /**
+     *Renvoie la galaxie de l'étoile
+     * @return
+     */
     public Galaxie getGalaxie() {
         return this.galaxie;
     }
     
+
     
+    @Override
     public String getType() {
         return "Etoile";
     }
