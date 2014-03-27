@@ -7,13 +7,24 @@ import java.util.Collection;
 import java.util.Scanner;
 
 public class Main {
+    
+    static Galaxie voieLactee;
+    static Etoile soleil;
+    static Univers univ;
+    
     public static void main(String[] args) {
+        
+    voieLactee = new Galaxie("Voie Lactée", "spirale", 0);
+    soleil = new Etoile(1, "Soleil",0, "F", voieLactee );
+    univ = new Univers(soleil, voieLactee);
+    
+        String nomGala;
+
+
         int commande, num;
-        Scanner sc = new Scanner(System.in);
+        Scanner scInt = new Scanner(System.in);
+        Scanner scStr = new Scanner(System.in);
         Boolean quitter = false;
-        Galaxie voieLactee = new Galaxie("Voie Lactée", "spirale", 0);
-        Etoile soleil = new Etoile(1, "Soleil",0, "F", voieLactee );
-        Univers univ = new Univers(soleil, voieLactee);
         ArrayList<ObjCeleste> tabObj;
         ArrayList<Galaxie> tabGala;
         ObjCeleste obj;
@@ -32,86 +43,137 @@ public class Main {
             System.out.println("9. Ajouter une galaxie (nom, type, eloign).");
             System.out.println("10 Quitter.");
             
-            commande = sc.nextInt();
+            commande = scInt.nextInt();
             
             
             
             switch (commande)
             {
-                case 0:     //jeu d'essai
+                case 0:     //fonctionne
                         jeuDessai();
                     break;
             
             
-                case 1:
+                case 1:     //Bug : impossible d'afficher l'objet 1 (soleil) : cheat fail !
                 System.out.println("Quelle objet voulez-vous afficher ?");
-                num = sc.nextInt();
+                num = scInt.nextInt();
                 System.out.println("Affichage de l'objet N°"+num+" :");
                 obj = univ.getObjet(num);
                 System.out.println(obj.toString());
                     break;   
             
             
-                case 2:
+                case 2:     //n'affiche pas la voie lactée, n'affiche pas toutes les infos (need un toString())
                 tabGala =  univ.getAllGalaxies();
                 System.out.println("\n\nAffichage de toutes les galaxies :\n");
                 for (Galaxie g : tabGala)
                 {
-                    System.out.println(g.toString());
+                    System.out.println(g.getNom());
                 }
                     break;   
             
-                case 3:
+                case 3: //fonctionne correctement
                 System.out.println("De quelle galaxie voulez-vous affichez les objets ?");
-                String nomGala = sc.nextLine();
+                nomGala = scStr.nextLine();
                 Galaxie gala = univ.getGalaxie(nomGala);
                 tabObj = univ.getObjets(gala);
                 System.out.println("Affichage des objets de "+nomGala+" :");
                 for (ObjCeleste o : tabObj) {
-                    System.out.toString();
+                    System.out.println(o.toString());
                 }
                     break;   
             
-                case 4:
+                case 4:     //fonctionne
                 System.out.println("De quel objet voulez-vous lister les satellites ?");
-                num = sc.nextInt();
+                num = scInt.nextInt();
                 obj = univ.getObjet(num);
                 ArrayList<ObjCeleste> tabSatel = obj.getSatellites();
-                System.out.println("Les satellites de l'objet N°"+num+" sont les suivants :");
+                if(!tabSatel.isEmpty())
+                {
+                System.out.println("Les satellites de "+obj.getNom()+" sont les suivants :");
                     for(ObjCeleste o : tabSatel) {
                         System.out.println(o.toString());
                     }
+                }
+                else
+                    System.out.println(obj.getNom()+" ne comporte pas de satellites.");
                     break;   
             
-                case 5:
+                case 5: //fonctionne pas
                 tabGala = univ.getAllGalaxies();
-                int nbEtoiles =0;
+                int nbEtoiles =0 ;
                 for (Galaxie g : tabGala) {
-                    nbEtoiles += g.nbEtoiles();
+                    nbEtoiles += g.nbEtoiles();     //nbEtoiles à pas l'air de marcher
+                    System.out.println(g.getNom());     // voie lactée pas dans tabGala
                 }
                 
-                System.out.println("Le nombre total d'étoile dans l'univers est de :"+ nbEtoiles);
+                System.out.println("Le nombre total d'étoile dans l'univers est de : "+ nbEtoiles);
                     break;   
             
             
-                case 6:
-                System.out.println("Affichage des caractéristiques du plus gros objet froid de l'univers :")
+                case 6: //fonction BigFroid() ?
+                System.out.println("Affichage des caractéristiques du plus gros objet froid de l'univers : ");
                 
                     break;   
             
             
-                case 7:
-                          ;
+                case 7:             //à l'air de fonctionner
+                System.out.println("Ajout d'une nouvelle étoile.");
+                System.out.print("     -Nom ? ");
+                String nomEtoile = scStr.nextLine();
+                System.out.print("     -Magnitude ? ");
+                int magEtoile = scInt.nextInt();
+                System.out.print("     -Age (lettre) ? ");
+                String ageEtoile = scStr.nextLine();
+                System.out.print("     -Galaxie ? ");
+                nomGala = scStr.nextLine();
+                gala = univ.getGalaxie(nomGala);
+                
+                if (gala == null) {
+                    System.out.println("Galaxie invalide !");
+                }
+                else {
+                    univ.creerEtoile(nomEtoile, magEtoile, ageEtoile, gala);
+                    System.out.println(nomEtoile + " a bien été créé.");
+                }
                     break;   
             
             
-                case 8:
-                          ;
+                case 8:     //ne fonctionne pas
+                System.out.println("Ajout d'un nouvel objet froid.");
+                System.out.print("     -Nom ? ");
+                String nomObj = scStr.nextLine();
+                System.out.print("     -Rayon ? ");
+                int rayObj = scInt.nextInt();
+                System.out.print("     -Diamètre ? ");
+                int diamObj = scInt.nextInt();
+                System.out.print("     -Période ? ");
+                int periodeObj = scInt.nextInt();
+                System.out.print("     -Centre de l'orbite ?");
+                String centreObj = scStr.nextLine();
+                obj = univ.getObjet(centreObj);
+                if (obj == null) {          //marche pas
+                    System.out.println("Le centre de l'orbite est invalide !");
+                }
+                else {
+                    univ.creerObjetFroid(nomObj,rayObj,diamObj,periodeObj,obj);
+                    System.out.println(nomObj + " a bien été créé.");
+                }
                     break;   
             
             
                 case 9:
-                          ;
+                System.out.println("Ajout d'une nouvelle galaxie.");
+                System.out.print("     -Nom ? ");
+                nomGala = scStr.nextLine();
+                System.out.print("     -Type ? ");
+                String typeGala = scStr.nextLine();
+                System.out.print("     -Eloignement ? ");
+                int eloiGala = scInt.nextInt();
+                
+                univ.creerGalaxie(nomGala,typeGala,eloiGala);
+                
+                System.out.println("La galaxie "+nomGala+" a bien été créee.");
                     break;   
             
             
@@ -128,6 +190,19 @@ public class Main {
     }
     
     public static void jeuDessai() {
-        
+       ObjCeleste terre = univ.creerObjetFroid("Terre", 150000, 13000, 365, soleil);
+       ObjCeleste lune = univ.creerObjetFroid("Lune", 200, 5000, 30, terre);
+       ObjCeleste mars = univ.creerObjetFroid("Mars",200000,11000,750, soleil);
+       ObjCeleste phobos = univ.creerObjetFroid("Phobos", 150,500,40,mars);
+       ObjCeleste pluton = univ.creerObjetFroid("Pluton", 1200000, 4000, 900, soleil);
+       
+       Etoile sirius = univ.creerEtoile("Sirius", 2,"B",voieLactee);
+       ObjCeleste big1 = univ.creerObjetFroid("BIG1", 1000, 50000, 333, sirius);
+       
+       Galaxie m31 = univ.creerGalaxie("M31", "lenticulaire", 900000);
+       Etoile xs67 = univ.creerEtoile("XS67",8,"F", m31);
+       ObjCeleste xp88 = univ.creerObjetFroid("XP88", 160000,40000,400, xs67);
+       
+       System.out.println("Le jeu d'essai a été créé avec succès !");
     }
 }

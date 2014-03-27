@@ -10,7 +10,7 @@ public class Univers {
     
     private Etoile soleil;
     
-    private int nextCode = 0;
+    private int nextCode = 2;
     
     private Galaxie voieLactee;
     
@@ -61,18 +61,28 @@ public class Univers {
         ObjFroid obj = new ObjFroid(nextCode, nom,type, rayonOrbite, diametre, periode, centreOrbite);
         centreOrbite.addSatellite(obj);
         nextCode++;
+        this.obj.add(obj);
         return obj;
     }
     
     public Etoile creerEtoile(String nom, int magnitude, String age, Galaxie galaxie) {
         Etoile etoile = new Etoile(nextCode, nom, magnitude, age, galaxie);
         nextCode++;
+        this.obj.add(etoile);
         return etoile;
     }
     
     public ObjCeleste getObjet(int code) {
         for(ObjCeleste o : obj) {
             if(o.getCode() == code)
+                return o;
+        }
+        return null;
+    }
+    
+    public ObjCeleste getObjet (String nom) {   //ajoutée en plus
+       for(ObjCeleste o : obj) {
+            if(o.getNom() == nom)
                 return o;
         }
         return null;
