@@ -48,7 +48,7 @@ public class Main {
               commande = scInt.nextInt();
             }
             catch (Exception e) {
-              System.out.println("\nEntrÈe incorrecte.");
+              System.out.println("\nEntr√©e incorrecte.");
               scInt.nextLine();         //"clear" le buffer du scanner
               commande = -1;
             }
@@ -79,11 +79,11 @@ public class Main {
                       System.out.println(obj.toString());
                     }
                     else {
-                        System.out.println("\nObjet N∞"+num+" introuvable.");
+                        System.out.println("\nObjet N√©"+num+" introuvable.");
                     }
                 }
                 catch (Exception e) {
-                  System.out.println("\nEntrÈe incorrecte.");
+                  System.out.println("\nEntr√©e incorrecte.");
                   scInt.nextLine();         //"clear" le buffer du scanner
                 }
                     break;
@@ -103,7 +103,7 @@ public class Main {
                     }
                 }
                 else
-                    System.out.println("Aucunes galaxie n'a ÈtÈ crÈÈe.");
+                    System.out.println("Aucunes galaxie n'a √©t√© cr√©√©e.");
                     break;   
             
             
@@ -133,7 +133,7 @@ public class Main {
                     break;   
             
             
-                case 4:     //ne fonctionne pas : le soleil est indiquÈ comme ne comportant pas de satellites
+                case 4:     //ne fonctionne pas : le soleil est indiqu√© comme ne comportant pas de satellites
                 if(univ == null) {
                     System.out.println("Univers non initialis√© ");
                     break;
@@ -156,11 +156,11 @@ public class Main {
                             System.out.println("\n"+obj.getNom()+" ne comporte pas de satellites.");
                     }
                     else {
-                        System.out.println("Il n'y a pas d'objet de ce numÈro.");
+                        System.out.println("Il n'y a pas d'objet de ce num√©ro.");
                     }
                 }
                 catch (Exception e) {
-                  System.out.println("\nEntrÈe incorrecte.");
+                  System.out.println("\nEntr√©e incorrecte.");
                   scInt.nextLine();         //"clear" le buffer du scanner
                 }
                     break;   
@@ -188,13 +188,13 @@ public class Main {
                     break;   
             
             
-                case 6: //‡ finir
+                case 6: //√© finir
                 if(univ == null) {
                     System.out.println("Univers non initialis√© ");
                     break;
                 }
                 System.out.println("\n\nAffichage des caract√©ristiques du plus gros objet froid de l'univers : ");
-                
+                System.out.println(univ.theBigOne().toString());
                     break;   
             
             
@@ -226,7 +226,7 @@ public class Main {
                 }
                 catch(Exception e) {
                     scInt.nextLine();
-                    System.out.println("EntrÈe incorrect.");
+                    System.out.println("Entr√©e incorrect.");
                 }
                     break;   
             
@@ -260,7 +260,7 @@ public class Main {
                 }
                 catch(Exception e) {
                     scInt.nextLine();
-                    System.out.println("EntrÈe incorrect.");
+                    System.out.println("Entr√©e incorrect.");
                 }
                     break;   
             
@@ -285,17 +285,13 @@ public class Main {
                 }
                 catch(Exception e) {
                     scInt.nextLine();
-                    System.out.println("EntrÈe incorrect.");
+                    System.out.println("Entr√©e incorrect.");
                 }
 
                     break;   
             
             
                 case 10:    //fonctionne
-                if(univ == null) {
-                    System.out.println("Univers non initialis√© ");
-                    break;
-                }
                 quitter = true;
                 System.out.println("\n\nFermeture de l'application.");
                     break;
@@ -313,10 +309,9 @@ public class Main {
     //initialise le programme
     public static void jeuDessai() {
         
-        voieLactee = new Galaxie("Voie Lact√©e", "spirale", 0);
-        soleil = new Etoile(1, "Soleil",0, "F", voieLactee );
         univ = new Univers("Voie Lact√©e", "spirale", 0, "Soleil", 0, "F");
-        
+        voieLactee = univ.getVoieLactee();
+        soleil = univ.getSoleil();
         
        ObjCeleste terre = univ.creerObjetFroid("Terre", 150000, 13000, 365, soleil);
        ObjCeleste lune = univ.creerObjetFroid("Lune", 200, 5000, 30, terre);

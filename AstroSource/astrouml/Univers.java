@@ -165,6 +165,23 @@ public class Univers {
         return this._soleil;
     }
     
+    public ObjCeleste theBigOne() {
+        ArrayList<ObjCeleste> objets = getObjets();
+        ObjFroid current = null;
+        
+        for(ObjCeleste obj : objets) {
+            if(obj instanceof ObjFroid) {
+                ObjFroid objFroid = (ObjFroid) obj;
+                if(current == null || objFroid.getDiametre() > current.getDiametre()) {
+                    current = objFroid;
+                }
+            }
+        }
+        
+        return current;
+        
+    }
+    
     /**
      *Renvoie la référence de la voie lactée
      * @return

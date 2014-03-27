@@ -46,6 +46,10 @@ public class ObjFroid extends ObjCeleste {
         return this.type;
     }
     
+    public int getDiametre() {
+        return diametre;
+    }
+    
     public ObjCeleste getCentre() {
         return centre;
     }

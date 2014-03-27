@@ -78,7 +78,7 @@ public class Galaxie {
     
     @Override
     public String toString() {
-        return getNom() + " (type = " + type + " ; this.eloignement : " + this.eloignement + ")";
+        return getNom() + " (type = " + type + " ; eloignement : " + this.eloignement + ")";
     }
 
     
