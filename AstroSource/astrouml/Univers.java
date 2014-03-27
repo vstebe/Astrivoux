@@ -28,6 +28,7 @@ public class Univers {
     public Univers(String nom, String type, int eloignement, String nomSoleil, int magnitude, String age) {
         this._voieLactee = creerGalaxie(nom, type, eloignement);
         this._soleil = creerEtoile(nomSoleil, magnitude, age, this._voieLactee);
+        _nextCode=2;
     }
     
 
