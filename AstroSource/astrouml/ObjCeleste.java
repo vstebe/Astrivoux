@@ -14,7 +14,7 @@ public abstract class ObjCeleste {
      */
     private String nom;
     
-    private ArrayList<ObjCeleste> satellites = new ArrayList<ObjCeleste>();
+    private ArrayList<ObjFroid> satellites = new ArrayList<ObjFroid>();
     
     public ObjCeleste(int code, String nom) {
         this.code = code;
@@ -51,7 +51,7 @@ public abstract class ObjCeleste {
      * Renvoie les satellites de l'objet
      * @return
      */
-    public ArrayList<ObjCeleste> getSatellites() {
+    public ArrayList<ObjFroid> getSatellites() {
         return satellites;
     }
     
